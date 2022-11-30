@@ -375,6 +375,7 @@ function s11() {
         })
             .then(() => {
                 console.log('Данные успешно добавлены в таблицу')
+                return ctx.scene.enter('q12')
             })
             .catch((err) => {
                 console.log('Произошла ошибка при добавлении данных в таблицу', err)
@@ -384,4 +385,12 @@ function s11() {
     return q11
 }
 
-module.exports = { s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11 }
+function s12() {
+    const q12 = new Scenes.BaseScene('q12')
+
+    q12.on('message', (ctx) => ctx.reply('Вы уже прошли опрос!'))
+
+    return q12
+}
+
+module.exports = { s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12 }
